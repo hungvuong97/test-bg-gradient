@@ -1,26 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Slider from './Slider'
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      range: {
+        1: {
+          offsetX: 15,
+          r: 34,
+          g: 27,
+          b: 32,
+          a: 1,
+          hex: '#221B20'
+        },
+        2: {
+          offsetX: 50,
+          r: 134,
+          g: 57,
+          b: 62,
+          a: 1,
+          hex: '#86393E'
+        },
+      },
+      angle: 0
+    }
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <Slider range={this.state.range} angle={this.state.angle} />
+      </div>
+    );
+  }
 }
-
 export default App;
